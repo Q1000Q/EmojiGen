@@ -1,5 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <form action="/">
+        <textarea
+            name="input"
+            id="input"
+            placeholder="Write your input text to convert..."
+            aria-label="Text Input"
+            style="height: 14em; margin-top: 2em;"
+        ></textarea>
+
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 4em;">
+            <label style="width: 70%;">
+                Emojis Level
+                <input type="range" name="level" id="level" step="1" min="0" max="5" value="{{level}}" oninput="document.getElementById('levelVal').value = this.value" />
+            </label>
+
+            <output id="levelVal" style="margin-left: 1em; font-size: xx-large;">{{level}}</output>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <button type="submit" style="width: 80%;">Convert...</button>
+        </div>
+    </form>
     
+    <textarea
+    name="Output"
+    id="output"
+    placeholder="Your generated emojis"
+    aria-label="Emojis Output"
+    style="height: 14em; margin-top: 4em;"
+    disabled
+    >{{output}}</textarea>
 {% endblock content %}
