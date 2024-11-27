@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>EmojiGen</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+        />
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://unpkg.com/htmx.org@2.0.1"></script>
+    </head>
+    <body>
+        <div style="min-height: 100vh; display: flex; flex-direction: column;">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <nav style="margin-left: 5%; margin-right: 5%;">
+                <ul>
+                    <li><a href="/" class="contrast"><strong>EmojiGen</strong></a></li>
+                </ul>
+            </nav>
+            <main class="conteiner" style="flex: 1; margin-left: 5%; margin-right: 5%;">
+                {% block content%}{% endblock %}
+            </main>
+            <footer style="margin-bottom: 4em; font-size: small; margin-left: 5%; width: 90%;">
+                <span>Website created by Michał Jendrzejczyk (Q1000Q)</span>
+            </footer>
+        </div>
+    </body>
+</html>
