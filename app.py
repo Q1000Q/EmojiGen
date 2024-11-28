@@ -3,11 +3,13 @@ import os
 from dotenv import load_dotenv
 from groq import Groq
 
+# Inits flask app
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
 
 load_dotenv()
 
+# Init groq from env varible
 groq_client = Groq(
     api_key=os.environ.get("GROQ_API_KEY"),
 )
@@ -34,5 +36,7 @@ def method_name():
     else:
         return render_template('index.html', level=3) 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    # Imports waitress and serve app
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
