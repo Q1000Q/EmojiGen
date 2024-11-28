@@ -32,9 +32,9 @@ def method_name():
         
         output = chat_completion.choices[0].message.content
         
-        return render_template('index.html', output=output, level=level)
+        return render_template('index.html', output=output)
     else:
-        return render_template('index.html', level=3) 
+        return render_template('index.html') 
 
 if __name__ == "__main__":
     # Imports waitress and serve app

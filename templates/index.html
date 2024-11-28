@@ -8,15 +8,15 @@
             placeholder="Write your input text to convert..."
             aria-label="Text Input"
             style="height: 14em; margin-top: 2em;"
-        ></textarea>
+        >{{ request.args.get('input', '') }}</textarea>
 
         <div style="display: flex; justify-content: center; align-items: center; margin-top: 4em;">
             <label style="width: 70%;">
                 Emojis Level
-                <input type="range" name="level" id="level" step="1" min="0" max="5" value="{{level}}" oninput="document.getElementById('levelVal').value = this.value" />
+                <input type="range" name="level" id="level" step="1" min="0" max="5" value="{{ request.args.get('level', '3') }}" oninput="document.getElementById('levelVal').value = this.value" />
             </label>
 
-            <output id="levelVal" style="margin-left: 1em; font-size: xx-large;">{{level}}</output>
+            <output id="levelVal" style="margin-left: 1em; font-size: xx-large;">{{ request.args.get('level', '3') }}</output>
         </div>
 
         <div style="display: flex; justify-content: center;">
