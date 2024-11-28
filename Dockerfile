@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8080
 
 # Run the Flask application using Gunicorn
-CMD ["python", "./app/app.py"]
+CMD ["python", "app.py"]
